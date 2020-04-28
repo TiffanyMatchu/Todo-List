@@ -16,6 +16,14 @@ class App extends React.Component {
        item: e.target.value
       });
        }
+  keyPressed = e => {
+    if (e.key === "Enter") {
+      this.setState(p => ({
+        list: [...p.list, p.item],
+        item: ''
+      }));
+    }
+  }
   render(){
     return (
       <div className="App">
@@ -23,6 +31,7 @@ class App extends React.Component {
     <TodoInput 
       item={this.state.item}
       handleChange = {this.handleChange}
+      keyPressed = {this.keyPressed}
     />
     <TodoList/>
     </div>
