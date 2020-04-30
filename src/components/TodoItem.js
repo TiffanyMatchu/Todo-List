@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, ListHeader, Image, ListContent, Button } from 'semantic-ui-react';
+import { List, Button } from 'semantic-ui-react';
 export default class TodoItem extends Component {
     render() {
         const item = this.props;

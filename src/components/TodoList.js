@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
-import { List, Button,Segment} from 'semantic-ui-react';
+import { List,Segment} from 'semantic-ui-react';
 
 export default class TodoList extends Component {
     render() {
-        const { list } = this.props;
+        const list  = this.props;
         const isEmpty = Array.isArray(this.props.list);
         return (
             
