@@ -1,29 +1,27 @@
 import TodoList from './TodoList';
 import React from 'react';
-import {Input, Header} from 'semantic-ui-react';
+import { Input, Header } from 'semantic-ui-react';
 
 export default class TodoInput extends React.Component {
     render() {
-        const {item,handelChange,keyPressed}= this.props;
+        const { list,handelChange, handleClick } = this.props;
         return (
             <div>
-                < Header as = 'h1' color = 'blue' > ToDo List </Header>
-                < Input
-                    action = {
+                < Header as='h1' color='blue' > ToDo List </Header>
+                < Input 
+                    action={
                         {
                             color: 'blue',
                             labelPosition: 'left',
                             icon: 'add',
                             content: 'Add',
+                            onClick: ()=>this.props.handleClick()
                         }
                     }
-                    actionPosition = 'right'
-                    placeholder = 'Add to todo list'/>
-                            {/* <input type = 'text' placeholder = 'Hit enter to add item' 
-                                value = {item}
-                                onChange ={handelChange}
-                                /> */}                          
-                <TodoList/>
+                    actionPosition='right'
+                    onChange= {this.props.handleChange}
+                    placeholder='Add to todo list' />
+                <TodoList list={this.props.list} />
             </div>
         )
     }

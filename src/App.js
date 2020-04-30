@@ -1,41 +1,41 @@
 import React from 'react';
 import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
-import "semantic-ui-css/semantic.min.css"; 
+import "semantic-ui-css/semantic.min.css";
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: '',
-      list: []
+      list: [],
+      item: ''
     };
+    this.handleChange.bind(this);
+    this.handleClick.bind(this);
   }
   handleChange = (e) => {
-     this.setState({
-       item: e.target.value
-      });
-       }
-  keyPressed = e => {
-    if (e.key === "Enter") {
+    this.setState({
+      item: e.target.value
+    });
+    console.log(this.state.item);
+  }
+  handleClick = () => {
       this.setState(p => ({
         list: [...p.list, p.item],
-        item: ''
-      }));
-    }
+      }));   
   }
-  render(){
+  render() {
     return (
-      <div className="App">
-    
-    <TodoInput 
-      item={this.state.item}
-      handleChange = {this.handleChange}
-      keyPressed = {this.keyPressed}
-    />
-    <TodoList/>
-    </div>
-  );
+      < div class="ui center aligned container" >
+        <TodoInput
+          list={this.state.list}
+          handleChange={this.handleChange}
+          handleClick={this.handleClick}
+        />
+       
+  
+      </div>
+    );
   }
 }
 
