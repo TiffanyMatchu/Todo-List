@@ -24,6 +24,13 @@ class App extends React.Component {
         list: [...p.list, p.item],
       }));   
   }
+  deleteItem = id => {
+    const list = [...this.state.list];
+    const newList = list.filter((item, index) => {
+      return index !== id;
+    });
+    this.setState({ list: newList });
+  }
   render() {
     return (
       < div class="ui center aligned container" >
@@ -31,8 +38,8 @@ class App extends React.Component {
           list={this.state.list}
           handleChange={this.handleChange}
           handleClick={this.handleClick}
+          deleteItem={this.deleteItem}
         />
-       
   
       </div>
     );
