@@ -17,7 +17,6 @@ class App extends React.Component {
     this.setState({
       item: e.target.value
     });
-    console.log(this.state.item);
   }
   handleClick = () => {
       this.setState(p => ({
